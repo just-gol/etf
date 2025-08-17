@@ -20,4 +20,17 @@ pub mod etf {
     ) -> Result<()> {
         instructions::create_etf(ctx, args)
     }
+
+    pub fn prepare_funds<'info>(
+        ctx: Context<'_, '_, '_, 'info, PrepareFunds<'info>>,
+    ) -> Result<()> {
+        instructions::prepare_funds(ctx)
+    }
+
+    pub fn purchase_etf<'info>(
+        ctx: Context<'_, '_, '_, 'info, PurchaseEtf<'info>>,
+        lamports: u64,
+    ) -> Result<()> {
+        instructions::purchase_etf(ctx, lamports)
+    }
 }
