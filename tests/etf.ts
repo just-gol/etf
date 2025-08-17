@@ -8,9 +8,4 @@ describe("etf", () => {
 
   const program = anchor.workspace.etf as Program<Etf>;
 
-  it("Is initialized!", async () => {
-    // Add your test here.
-    const tx = await program.methods.initialize().rpc();
-    console.log("Your transaction signature", tx);
-  });
 });

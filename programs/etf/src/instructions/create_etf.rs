@@ -99,13 +99,15 @@ pub struct CreateETF<'info> {
     )]
     pub etf_mint_account: Account<'info, Mint>,
 
+    /// CHECK:
     #[account(
       mut,
       seeds=[
         b"metadata",
         token_metadata_program.key().as_ref(), 
         etf_mint_account.key().as_ref()],
-        bump
+        bump,
+        seeds::program = token_metadata_program.key(),
     )]
     pub metadata_account: UncheckedAccount<'info>,
 

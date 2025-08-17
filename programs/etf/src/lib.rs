@@ -6,16 +6,18 @@ pub mod error;
 pub mod instructions;
 use instructions::*;
 pub mod state;
+pub use state::*;
 
 #[program]
 pub mod etf {
+    use crate::state::CreateEtfArgs;
+
     use super::*;
 
-    pub fn initialize(ctx: Context<Initialize>) -> Result<()> {
-        msg!("Greetings from: {:?}", ctx.program_id);
-        Ok(())
+    pub fn create_etf<'info>(
+        ctx: Context<'_, '_, '_, 'info, CreateETF<'info>>,
+        args: CreateEtfArgs,
+    ) -> Result<()> {
+        instructions::create_etf(ctx, args)
     }
 }
-
-#[derive(Accounts)]
-pub struct Initialize {}

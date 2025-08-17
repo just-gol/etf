@@ -50,5 +50,5 @@ impl Etf {
 #[derive(InitSpace)]
 pub struct Asset {
     pub token: Pubkey,
-    pub weight: u64,
+    pub weight: u8,
 }
